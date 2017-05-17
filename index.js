@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-module.exports.connectToContext = function connectToContext(requiredContextFields, mapContextToProps) {
+module.exports = function connectToContext(requiredContextFields, mapContextToProps) {
     if (typeof requiredContextFields === 'string') {
         requiredContextFields = [requiredContextFields];
     }

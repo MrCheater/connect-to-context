@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { connectToContext } from '../index.js';
+import connectToContext from '../index.js';
 import chai from 'chai';
 const expect = chai.expect;
 
 describe('Utils "connectToContext"', function () {
     context('with args ("primaryId")', function () {
-        it('should be transfer context.primaryId to props.primaryId', function () {
+        it('should transfer context.primaryId to props.primaryId', function () {
             class Provider extends React.Component {
                 static childContextTypes = {
                     primaryId: React.PropTypes.any
@@ -60,7 +60,7 @@ describe('Utils "connectToContext"', function () {
     });
 
     context('with args (["primaryId", "testId"])', function () {
-        it('should be transfer context.primaryId, context.testId to props.primaryId, props.testId', function () {
+        it('should transfer context.primaryId, context.testId to props.primaryId, props.testId', function () {
             class Provider extends React.Component {
                 static childContextTypes = {
                     primaryId: React.PropTypes.any,
@@ -117,7 +117,7 @@ describe('Utils "connectToContext"', function () {
     });
 
     context('with args ("primaryId", (context) => ({identityFieldName : "primaryId", experimentInputs  : {primaryId : context.primaryId}}))', function () {
-        it('should be transfer context.primaryId to props.primaryId', function () {
+        it('should transfer context.primaryId to props.primaryId', function () {
             class Provider extends React.Component {
                 static childContextTypes = {
                     primaryId: React.PropTypes.any,
@@ -177,7 +177,7 @@ describe('Utils "connectToContext"', function () {
     });
 
     context('with properties = 10', function () {
-        it('should be throw Error', function () {
+        it('should throw Error', function () {
             expect(
                 () => connectToContext(10)
             ).to.throw(Error, 'Incorrect fields');
@@ -185,7 +185,7 @@ describe('Utils "connectToContext"', function () {
     });
 
     context('with properties = [10]', function () {
-        it('should be throw Error', function () {
+        it('should throw Error', function () {
             expect(
                 () => connectToContext([10])
             ).to.throw(Error, 'Incorrect field');
@@ -193,7 +193,7 @@ describe('Utils "connectToContext"', function () {
     });
 
     context('with properties = ["primaryId", 10]', function () {
-        it('should be throw Error', function () {
+        it('should throw Error', function () {
             expect(
                 () => connectToContext(['primaryId', 10])
             ).to.throw(Error, 'Incorrect field');
